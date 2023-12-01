@@ -10,8 +10,6 @@ import { fetchData } from "../assets/petitions/fetchData";
 import { fetchLeads } from "../assets/petitions/fetchLeads";
 import { urlEncode } from '../assets/helpers/utilities';
 const EmailForm = ({
-  leads,
-  setLeads,
   setDataQuestions,
   dataQuestions,
   setQuestions,
@@ -82,11 +80,9 @@ const EmailForm = ({
           fetchLeads(true, backendURLBase, endpoints, clientId, dataUser, emailData)
           setShowEmailForm(true)
           setShowThankYou(false)
-          setLeads(leads+1)
       }
       if(payload.success !== true) {
       fetchLeads(false, backendURLBase, endpoints, clientId, dataUser, emailData)
-      setLeads(leads+1)
           return (
               <Alert>
                   El correo no ha sido enviado con éxito, por favor intente de nuevo más tarde
@@ -121,7 +117,6 @@ const EmailForm = ({
       );
       setShowEmailForm(true);
       setShowThankYou(false);
-      setLeads(leads+1)
     }
     if (payload.success !== true) {
       fetchLeads(
@@ -133,7 +128,6 @@ const EmailForm = ({
         emailData,
         questions
       );
-      setLeads(leads+1)
       return (
         <Alert>
           El correo no ha sido enviado con éxito, por favor intente de nuevo más

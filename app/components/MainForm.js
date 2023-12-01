@@ -409,8 +409,6 @@ states.length > 0 ?
         </div>
       </div>
       <EmailForm
-        setLeads={setLeads}
-        leads={leads}
         setShowThankYou={setShowThankYou}
         setShowFindForm={setShowFindForm}
         setShowEmailForm={setShowEmailForm}
