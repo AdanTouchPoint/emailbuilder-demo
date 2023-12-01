@@ -48,7 +48,6 @@ function Home() {
     const [senator, setSenator] = useState([])
     const [states, setStates] = useState([])
     const [tweet, setTweet] = useState('')
-    const [leads, setLeads] = useState()
     const [dataQuestions,setDataQuestions] = useState()
     const [questions, setQuestions] = useState({
       question1: '',
@@ -87,7 +86,6 @@ function Home() {
         async function fetchData() {
           await Promise.all([
             fetchConfig('GET', backendURLBase, endpoints.toGetConfs, clientId, setConfigurations),
-            fetchAllLeads('GET', backendURLBase, endpoints.toGetAllLeads, clientId, setLeads),
             fetchMainContent('GET', backendURLBase, endpoints.toGetMainData, clientId, '', setMainData),
             //fetchEmailData('GET', backendURLBase, endpoints.toGetQuestions, clientId, "", setDataUser),
             //fetchStatesData('GET', backendURLBase, endpoints.toGetAllRepresentatives, clientId, '', setStates),
@@ -113,8 +111,6 @@ function Home() {
         !loading && (
           <MainForm
               configurations={configurations}
-              setLeads={setLeads}
-              leads={leads}
               setEmailData={setEmailData}
               emailData={emailData}
               dataUser={dataUser}
