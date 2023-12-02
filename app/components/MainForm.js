@@ -329,43 +329,6 @@ states.length > 0 ?
   offset={70}
   duration={500}
 ></Link>
-  <h2>{mainData.senatorLabel}</h2>
-  <div className="representatives-container">
-    {senator.length > 0 ? (
-    configurations.filter === 'party' ? senator.filter((el)=> el.party === 'ALP').map((mps, index) => (
-      <List
-        setShowEmailForm={setShowEmailForm}
-        setShowFindForm={setShowFindForm}
-        showFindForm={showFindForm}
-        emailData={emailData}
-        setEmailData={setEmailData}
-        dataUser={dataUser}
-        mps={mps}
-        clientId={clientId}
-        key={index}
-        tweet={tweet}
-      />
-    )): senator.map((mps, index) => (
-      <List
-        setShowEmailForm={setShowEmailForm}
-        setShowFindForm={setShowFindForm}
-        showFindForm={showFindForm}
-        emailData={emailData}
-        setEmailData={setEmailData}
-        dataUser={dataUser}
-        mps={mps}
-        clientId={clientId}
-        key={index}
-        tweet={tweet}
-      />
-    ))
-    ) : (
-      <Alert variant="danger">
-        No representatives have been found with the state that has
-        provided us
-      </Alert>
-    )}
-  </div>
   <h2>{mainData.positionName}</h2>
   <div className="representatives-container">
     {console.log(mp)}
@@ -397,6 +360,30 @@ states.length > 0 ?
           tweet={tweet}
         />
       ))
+    ) : (
+      <Alert variant="danger">
+        No representatives have been found with the state that has
+        provided us
+      </Alert>
+    )}
+  </div>
+   <h2>{mainData.senatorLabel}</h2>
+  <div className="representatives-container">
+    {senator.length > 0 ? (
+    senator.map((mps, index) => (
+      <List
+        setShowEmailForm={setShowEmailForm}
+        setShowFindForm={setShowFindForm}
+        showFindForm={showFindForm}
+        emailData={emailData}
+        setEmailData={setEmailData}
+        dataUser={dataUser}
+        mps={mps}
+        clientId={clientId}
+        key={index}
+        tweet={tweet}
+      />
+    ))
     ) : (
       <Alert variant="danger">
         No representatives have been found with the state that has
